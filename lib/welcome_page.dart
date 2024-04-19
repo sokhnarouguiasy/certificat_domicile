@@ -72,7 +72,7 @@ class WelcomePage extends StatelessWidget {
                       padding: const EdgeInsets.all(13),
 
                     ),
-                    child:const Text('GET STARTED') ,
+                    child:const Text('GET STARTED',style: TextStyle(color:Color.fromARGB(255, 128, 156, 241) ),) ,
                     onPressed: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> SocialPage()));
                     },
