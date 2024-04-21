@@ -1,88 +1,86 @@
+import 'package:certificat_domicile/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import 'delayed_animation.dart';
-import 'main.dart';
-import 'social_page.dart';
 
 
-//import 'delayed_animation.dart';
-
-class WelcomePage extends StatelessWidget {
-  const WelcomePage({super.key});
+class BienvenuePage extends StatelessWidget {
+  const BienvenuePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      backgroundColor: const Color(0xffB3BFE3), //0xFFEDECF2
-      body: SingleChildScrollView(
-        child:Container(
-          margin: const EdgeInsets.symmetric(
-            vertical: 60,
-            horizontal: 30,
-          ),
-          child: Column(
-            children: [
-              DelayedAnimation(
-                delay: 1500,  
-                // ignore: sized_box_for_whitespace
-                child: Container(
-                  width: 200,
-                  height: 100,
-                  child: Image.asset('images/logoCertificat.png'),
-                ),
-                ),
-              DelayedAnimation(
-                delay: 2500,  
-                // ignore: sized_box_for_whitespace
-                child: Container(
-                  height:400,
-                  child: Image.asset('images/gf.png'),
-                ),
-                ),
-              DelayedAnimation(
-                delay: 3500,  
-                // ignore: sized_box_for_whitespace
-                child: Container(
-                  margin: const EdgeInsets.only(
-                    top: 10,
-                    bottom: 20,
-                  ),
-                  child:Text(
-                    "Un certificat fiable à usage unique avec un QR code pour plus de sécurité",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      color: const Color.fromARGB(255, 17, 17, 18),
-                      fontSize:16,
-
-                    ),
-                    
-                    ),
-                ),
-                ),
-              DelayedAnimation(
-                delay: 4500,  
-                // ignore: sized_box_for_whitespace
-                child: Container(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: d_red,
-                      shape: const StadiumBorder(),
-                      padding: const EdgeInsets.all(13),
-
-                    ),
-                    child:const Text('GET STARTED',style: TextStyle(color:Color.fromARGB(255, 128, 156, 241) ),) ,
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> SocialPage()));
-                    },
-                    ),
-                ),
-                ),
-            ],
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/10.jpg"),
+            fit: BoxFit.cover,
           ),
         ),
+        child: Stack(
+          children: [
+            Container(
+              color: Colors.black.withOpacity(0.5), // Couleur noire avec une opacité de 50%
+             //blendMode: BlendMode.darken, // Mode de fusion pour assombrir l'image
+              width: double.infinity,
+              height: double.infinity,
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const CircleAvatar(
+                      backgroundImage: AssetImage("images/unnamed.jpg"),
+                      radius: 60,
+                    ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      "Bienvenue sur notre application",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      "Un certificat fiable à usage unique avec un QR code pour plus de sécurité",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const LoginPage()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      child: const Text(
+                        "COMMENCER",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 115, 149, 229),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
+      ),
     );
   }
 }
