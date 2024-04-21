@@ -21,17 +21,20 @@ class FormulairePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Inscription'),
+        title: const Text('Inscription'),
+        
       ),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(16.0),
             child: Form(
               key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  Image.asset('images/unnamed.jpg',height: 100,),
+                  const SizedBox(height: 16),
                   DelayedAnimation(
                     delay: 250,
                     child: TextFormField(

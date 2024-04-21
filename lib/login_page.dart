@@ -33,8 +33,9 @@ class _LoginPageState extends State<LoginPage> {
         child: Form(
           key: _formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Image.asset('images/senegal.png'),  
+              Image.asset('images/senegal.png',height: 200),  
               TextFormField(
 
                 decoration: const InputDecoration(labelText: 'Email'),
@@ -71,11 +72,20 @@ class _LoginPageState extends State<LoginPage> {
                   _password = value!;
                 },
               ),
+              const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _isLoading ? null : () => _submit(context),
-                child: _isLoading ? const CircularProgressIndicator() : const Text('Connexion'),
+                child: _isLoading ? const CircularProgressIndicator() :  Text(
+                  'Connexion',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  ),
+                  
               ),
-              TextButton(
+              const SizedBox(height: 16),
+              ElevatedButton(
                 onPressed: (){
                   Navigator.push(
                     context, 
@@ -84,14 +94,13 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     );
                 },
-                child: Text(
+                child: _isLoading ? const CircularProgressIndicator() :  Text(
                   'S\'inscrire',
                   style: GoogleFonts.poppins(
-                    color : const Color(0xffB3BFE3),
-                    fontSize : 20,
-                    fontWeight : FontWeight.w600,
-                  )
-                )
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                  ),
                
                 )
 
